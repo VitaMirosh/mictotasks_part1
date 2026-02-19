@@ -4,6 +4,7 @@ import {PageTwo} from './components/pages/PageTwo.tsx';
 import {PageThree} from './components/pages/PageThree.tsx';
 import {Route, Routes, Navigate, NavLink} from 'react-router-dom';
 import {Error404} from './components/pages/Error404.tsx';
+import {NavWrapper} from './components/pages/_styles.ts';
 
 
 export const App = () => {
@@ -12,15 +13,9 @@ export const App = () => {
       <div className={styles.header}><h1>HEADER</h1></div>
       <div className={styles.body}>
         <div className={styles.nav}>
-          <div><NavLink to={'/page1'}
-                        className={({isActive}) => isActive ? styles.activeNavLink : styles.navLink}>Page1</NavLink>
-          </div>
-          <div><NavLink to={'/page2'}
-                        className={({isActive}) => isActive ? styles.activeNavLink : styles.navLink}>Page2</NavLink>
-          </div>
-          <div><NavLink to={'/page3'}
-                        className={({isActive}) => isActive ? styles.activeNavLink : styles.navLink}>Page3</NavLink>
-          </div>
+          <NavWrapper><NavLink to={'/page1'}>Page1</NavLink></NavWrapper>
+          <NavWrapper><NavLink to={'/page2'}>Page2</NavLink></NavWrapper>
+          <NavWrapper><NavLink to={'/page3'}>Page3</NavLink></NavWrapper>
 
         </div>
         <div className={styles.content}>
@@ -40,3 +35,4 @@ export const App = () => {
     </div>
   )
 }
+
