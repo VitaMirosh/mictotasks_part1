@@ -14,6 +14,8 @@ const PATH = {
   ABIBAS:'/ABIBAS',
 } as const
 export const App = () => {
+
+
   return (
     <div>
       <div className={styles.header}><h1>HEADER</h1></div>
@@ -29,7 +31,7 @@ export const App = () => {
             <Route path={PATH.ADIDAS}  element={<Adidas/>}/>
             <Route path={PATH.PUMA} element={<Puma/>}/>
             <Route path={PATH.ABIBAS} element={<Abibas/>}/>
-            <Route path={'/adidas/:id'} element={<Model/>}/>
+            <Route path={'/:model/:id'} element={<Model/>}/>
 
             <Route path="*" element={<Error404/>}/>
           </Routes>
