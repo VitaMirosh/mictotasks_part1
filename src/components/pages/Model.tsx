@@ -1,5 +1,6 @@
 import {useParams} from 'react-router-dom';
 import {adidasArr, AdidasItem} from './Adidas.tsx';
+import {Error404} from './Error404.tsx';
 
 
 export const Model = () => {
@@ -15,7 +16,7 @@ export const Model = () => {
           <img src={item.picture} alt={item.model}
                style={{width: '600px', height: 'auto', marginRight : '10px'}}/>
 
-        </div> : 'Модель не найдена'
+        </div> : <Error404/>
       }
 
     </>
