@@ -1,11 +1,21 @@
 import {useParams} from 'react-router-dom';
-import {adidasArr, AdidasItem} from './Adidas.tsx';
-import {Error404} from './Error404.tsx';
+import {adidasArr, FirmItem} from './Adidas.tsx';
+import {pumaArr} from './Puma.tsx';
 
+type CrossModels={
+  adidas:FirmItem[]
+  puma:FirmItem[]
+}
+const crossModels:CrossModels={
+  adidas:adidasArr,
+  puma:pumaArr
+}
 
 export const Model = () => {
-  const {id} = useParams<{ id: string }>()
-  const item = adidasArr.find((arrId: AdidasItem) => arrId.id === id)
+  // const {id} = useParams<{ id: string }>()
+  const {model,id }= useParams<{model:string ,id:string}>()
+  const item = model && crossModels[model as keyof CrossModels].find(el => el.id ===id)
+
   return (
     <>
       {item ?
@@ -16,10 +26,10 @@ export const Model = () => {
           <img src={item.picture} alt={item.model}
                style={{width: '600px', height: 'auto', marginRight : '10px'}}/>
 
-        </div> : <Error404/>
+        </div> : 'Такой модели не cуществует!'
       }
 
     </>
 
   )
-}
+ }
