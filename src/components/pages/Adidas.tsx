@@ -1,11 +1,11 @@
-import adidasModel1 from '../../assets/AdiFOM_TRXN_Shoes_Black_IG7453_01_standard.webp'
-import adidasModel2 from '../../assets/Superstar_XLG_Shoes_Black_IG9777_01_standard.webp'
+import adidasModel1 from '../../assets/adidas/AdiFOM_TRXN_Shoes_Black_IG7453_01_standard.webp'
+import adidasModel2 from '../../assets/adidas/Superstar_XLG_Shoes_Black_IG9777_01_standard.webp'
 import adidasModel3
-  from '../../assets/PostMove_Mid_Cloudfoam_Super_Lifestyle_Basketball_Mid_Classic_Shoes_Black_GY7163_01_standard.webp'
-import styled from 'styled-components';
+  from '../../assets/adidas/PostMove_Mid_Cloudfoam_Super_Lifestyle_Basketball_Mid_Classic_Shoes_Black_GY7163_01_standard.webp'
 import {Link} from 'react-router-dom';
+import {ImageWrapper} from './_styles.ts';
 
-export type AdidasItem = {
+export type FirmItem = {
   id: string
   model: string
   collection: string
@@ -13,7 +13,7 @@ export type AdidasItem = {
   picture: string
 }
 
-export const adidasArr: AdidasItem[] = [
+export const adidasArr: FirmItem[] = [
   {
     id:'1',
     model: 'ADIDAS ADIFOM TRXN',
@@ -94,7 +94,3 @@ export const Adidas = () => {
   );
 };
 
-const ImageWrapper = styled.div`
-    display: flex;
-    margin: 10px 50px;
-`
