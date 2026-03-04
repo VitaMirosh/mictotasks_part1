@@ -1,35 +1,40 @@
-import {useParams} from 'react-router-dom';
-import {adidasArr, FirmItem} from './Adidas.tsx';
-import {pumaArr} from './Puma.tsx';
+import {adidasArr, AdidasItem} from "./Adidas";
+import {useParams} from "react-router-dom";
+import {pumaArr, PumaItem} from "./Puma";
 
-type CrossModels={
-  adidas:FirmItem[]
-  puma:FirmItem[]
+type CrossModels = {
+  [key: string]: (AdidasItem[] | PumaItem[]);
 }
-const crossModels:CrossModels={
-  adidas:adidasArr,
-  puma:pumaArr
+
+const crossModels: CrossModels = {
+  adidas: adidasArr,
+  puma: pumaArr
 }
 
 export const Model = () => {
-  // const {id} = useParams<{ id: string }>()
-  const {model,id }= useParams<{model:string ,id:string}>()
-  const item = model && crossModels[model as keyof CrossModels].find(el => el.id ===id)
+  // const params=useParams()
+  const {model, id} = useParams();
+  console.log(model)
+  //const currentModel=adidasArr.find(el=>el.id===Number(id))
+  const currentModel = model
+    ? crossModels[model].find((el) => el.id === Number(id))
+    : null;
 
   return (
-    <>
-      {item ?
-        <div style={{textAlign: 'center'}}>
-          <h2>{item.model}</h2>
-          <h4>{item.collection}</h4>
-          <h3>{item.price}</h3>
-          <img src={item.picture} alt={item.model}
-               style={{width: '600px', height: 'auto', marginRight : '10px'}}/>
-
-        </div> : 'Такой модели не cуществует!'
+    <div style={{textAlign: 'center'}}>
+      {currentModel
+        ? <>
+          <h2>{currentModel?.model}</h2>
+          <h4>{currentModel?.collection}</h4>
+          <h3>{currentModel?.price}</h3>
+          <img
+            src={currentModel?.picture}
+            alt={currentModel?.model}
+            style={{width: '600px', height: 'auto', marginRight: '10px'}}
+          />
+        </>
+        : <h2>Модель отсутствует</h2>
       }
-
-    </>
-
-  )
- }
+    </div>
+  );
+};

@@ -1,57 +1,56 @@
-import adidasModel1 from '../../assets/adidas/AdiFOM_TRXN_Shoes_Black_IG7453_01_standard.webp'
-import adidasModel2 from '../../assets/adidas/Superstar_XLG_Shoes_Black_IG9777_01_standard.webp'
+import adidasModel1 from './../../assets/adidas/AdiFOM_TRXN_Shoes_Black_IG7453_01_standard.webp'
+import adidasModel2 from './../../assets/adidas/Superstar_XLG_Shoes_Black_IG9777_01_standard.webp'
 import adidasModel3
-  from '../../assets/adidas/PostMove_Mid_Cloudfoam_Super_Lifestyle_Basketball_Mid_Classic_Shoes_Black_GY7163_01_standard.webp'
-import {Link} from 'react-router-dom';
-import {ImageWrapper} from './_styles.ts';
+  from './../../assets/adidas/PostMove_Mid_Cloudfoam_Super_Lifestyle_Basketball_Mid_Classic_Shoes_Black_GY7163_01_standard.webp'
+import {Link} from "react-router-dom";
 
-export type FirmItem = {
-  id: string
-  model: string
-  collection: string
-  price: string
-  picture: string
+export type AdidasItem = {
+  id: number;
+  model: string;
+  collection: string;
+  price: string;
+  picture: string;
 }
-
-export const adidasArr: FirmItem[] = [
+export const adidasArr: AdidasItem[] = [
   {
-    id:'1',
+    id: 1,
     model: 'ADIDAS ADIFOM TRXN',
     collection: 'new collection1',
     price: '100200$',
-    picture: adidasModel1
+    picture: adidasModel1,
+
   },
   {
-    id:'2',
+    id: 2,
     model: 'ADIDAS ADIFOM SUPER',
     collection: 'new collection22',
-    price: '100200$',
+    price: '200300$',
     picture: adidasModel2
   },
   {
-    id:'3',
-    model: 'ADIDAS SUPER SUPERSKI ',
+    id: 3,
+    model: 'ADIDAS SUPER SUPERSKI',
     collection: 'new collection333',
-    price: '100200$',
+    price: '300400$',
     picture: adidasModel3
-  },
+  }
 ]
 
 export const Adidas = () => {
   return (
     <div>
       <h2> ADIDAS</h2>
-      <ImageWrapper>
-        {adidasArr.map((p) =>
-          <Link key={p.id} to={`/adidas/${p.id}`}>
+      <div style={{display: 'flex', justifyContent: 'center'}}>
+        {adidasArr.map((adidas) => (
+          <Link key={adidas.id} to={`/adidas/${adidas.id}`}>
             <img
-              alt={p.model} src={p.picture}
-              style={{width:'200px',height:'auto',marginRight:'10px'}}
+              src={adidas.picture}
+              alt={adidas.model}
+              style={{width: '200px', height: 'auto', marginRight: '10px'}}
             />
           </Link>
-        )}
-      </ImageWrapper>
-
+        ))}
+      </div>
       <p>
         What is Lorem Ipsum?
         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's

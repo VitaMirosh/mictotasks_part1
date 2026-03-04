@@ -23,7 +23,3 @@ const NavWrapper = styled.div`
 export const S={
     NavWrapper,
   }
-export const ImageWrapper = styled.div`
-    display: flex;
-    margin: 10px 50px;
-`
