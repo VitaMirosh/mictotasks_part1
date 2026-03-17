@@ -16,7 +16,8 @@ export const App = () => {
           <S.NavWrapper><NavLink to={PATH.ABIBAS}>Page3</NavLink></S.NavWrapper>
           <S.NavWrapper><NavLink to={PATH.PRICES}>Page4</NavLink></S.NavWrapper>
           <S.NavWrapper><NavLink to={PATH.PROTECT}>Protected Page</NavLink></S.NavWrapper>
-          <S.NavWrapper><NavLink to={PATH.ERROR404}></NavLink></S.NavWrapper>
+
+
         </div>
         <div className={styles.content}>
           <Outlet />
